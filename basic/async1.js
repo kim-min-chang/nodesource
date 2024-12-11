@@ -1,23 +1,37 @@
-// 비동기 : 특정 코드의 실험을 멈추지 않고 다음 코드를 먼저 실행
+// 비동기 : 특정 코드의 실행을 멈추지 않고 다음 코드를 먼저 실행
 // function getData() {
-//    let result
-//     $.get("https://jsonplaceholder.typicode.com/todos/1", (response) => {
-//       result = response;
-//     });
-//     return result;
-//   }
+//   let result;
+//   $.get("https://jsonplaceholder.typicode.com/todos/1", (response) => {
+//     result = response;
+//   });
+//   return result;
+// }
+// console.log(getData());  // undefined
 
-// 콜벡함수
+// 콜백함수 : 비동기해결
+// function getData(callback) {
+//   $.get("https://jsonplaceholder.typicode.com/todos/1", (response) => {
+//     callback(response);
+//   });
+// }
+
+// getData((data) => {
+//   console.log(data);
+// });
+
+//콜백 지옥
 function getData(callback) {
   $.get("https://jsonplaceholder.typicode.com/todos/1", (response) => {
     callback(response);
   });
 }
+
 function getData2(callback) {
-  $.get("https://jsonplaceholder.typicode.com/todos/1", (response) => {
+  $.get("https://jsonplaceholder.typicode.com/todos/", (response) => {
     callback(response);
   });
 }
+
 getData((data) => {
   console.log(data);
 
@@ -26,8 +40,6 @@ getData((data) => {
   });
 });
 
-// console.log(getData());
-
 // console.log("hello");
 // setTimeout(() => {
 //   console.log("bye");
@@ -35,10 +47,10 @@ getData((data) => {
 // console.log("hello again");
 
 // 콜백지옥 해결
-//  1. Primise
-//  2. async,await
+// 1. Promise
+// 2. async, await
 
-function getData(callback) {
+function getData() {
   return new Promise((resolve, reject) => {
     $.get("https://jsonplaceholder.typicode.com/todos/1", (response) => {
       if (response) resolve(response);

@@ -8,7 +8,7 @@
 
 function fetchItems() {
   return new Promise((resolve, reject) => {
-    resolv([1, 2, 3]);
+    resolve([1, 2, 3]);
   });
 }
 // fetchItems()
@@ -22,29 +22,29 @@ async function logItems() {
 
 logItems();
 
-function todos() {
-  return fetch("https://jsonplaceholder.typicode.com/todos/1").then(
-    (response) => response.json()
-  );
+async function todos() {
+  return fetch("https://jsonplaceholder.typicode.com/todos/1").then((response) => response.json());
 }
 const todo = await todos();
-if (todo.id == 1) console.log(todo.title);
+if (todo.id === 1) console.log(todo.title);
 
-// "https://jsonplaceholder.typicode.com/users/1"
-// "https://jsonplaceholder.typicode.com/todos/1"
+// https://jsonplaceholder.typicode.com/users/1
+// https://jsonplaceholder.typicode.com/todos/1
 
 async function fetchUsers() {
-  return fetch("https://jsonplaceholder.typicode.com/users/1").then(
-    (response) => response.json()
-  );
+  return async function fetchUsers() {
+    return fetch("https://jsonplaceholder.typicode.com/users/1").then((response) =>
+      response.json()
+    );
+  };
 }
+
 async function fetchTodos() {
-  return fetch("https://jsonplaceholder.typicode.com/todos/1").then(
-    (response) => response.json()
-  );
+  return fetch("https://jsonplaceholder.typicode.com/todos/1").then((response) => response.json());
 }
+
 async function test() {
-  const user = fetchUsers();
+  const user = await fetchUsers();
 
   if (user.id === 1) {
     const todo = await fetchTodos();

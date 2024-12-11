@@ -1,10 +1,10 @@
 import { odd, even } from "./var.mjs";
 
-function checkOddOrEvem(num) {
+function checkOddOrEven(num) {
   if (num % 2) {
     return odd;
   }
   return even;
 }
 
-export default checkOddOrEvem;
+export default checkOddOrEven;

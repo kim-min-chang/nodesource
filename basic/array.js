@@ -1,7 +1,7 @@
 const fruits = ["사과", "망고", "바나나", "수박", "자두", "포도"];
 // console.log(fruits);
 
-// 구조 분해 (Destructuring)
+//구조 분해(Destructuring)
 let candyMachine = {
   status: {
     name: "node",
@@ -34,28 +34,28 @@ const array = ["node.js", {}, 10, true];
 const [node, obj, , bool] = array;
 console.log(node, obj, bool);
 
-// spread operator : ...(복제)
+// spread operator : ... (복제)
 var array1 = ["num1", "num2"];
 var array2 = ["num3", "num4"];
-// 주소복사 (원본의 변화가 일어나면 복제본도 변화함)
-// var sumArr = [array1, array2];
-// console.log(sumArr);
-// array1.push("new1");
-// console.log("array1", array1);
-// console.log(sumArr);
+// 주소 복사(원본의 변화가 일어나면 복제본도 변화함)
+var sumArr = [array1, array2];
+console.log("두 배열 결합 ", sumArr); // [ [ 'num1', 'num2' ], [ 'num3', 'num4' ] ]
+array1.push("new1");
+console.log("array1 ", array1);
+console.log("원본 변경 후 ", sumArr);
 
-// 값만 복사( 원본의변화와 무관함)
+// 값만 복사(원본의 변화와 무관함)
 var sumArr2 = [...array1, ...array2];
-console.log(sumArr2);
+console.log(sumArr2); // [ 'num1', 'num2', 'num3', 'num4' ]
 array1.push("new1");
 console.log(sumArr2);
 
 let obj1 = { key1: "value1", key2: "value2" };
 let obj2 = { key2: "value3", key4: "value4" };
 let sumObj = { obj1, obj2 };
-console.log("{}", sumObj);
+console.log("{} ", sumObj);
 let sumObj2 = { ...obj1, ...obj2 };
-console.log("{}", sumObj2);
+console.log("{} ", sumObj2);
 
 let student = {
   name: "홍길동",
