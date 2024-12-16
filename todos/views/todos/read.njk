@@ -1,0 +1,50 @@
+{% block style %} {%endblock%} {% block content %}
+<main layout:fragment="content" class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+  <!--main content-->
+  <div class="container">
+    <h1>Todo 상세</h1>
+    <div class="card">
+      <div class="card-header">Todo 보기</div>
+      <div class="card-body">
+        <form action="" method="post">
+          <div class="mb-3">
+            <label for="title" class="form-label">할일</label>
+            <textarea
+              class="form-control"
+              id="title"
+              name="title"
+              rows="5"
+              readonly
+            >
+            </textarea>
+          </div>
+          <div class="mb-3 form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="important"
+              name="important"
+              checked=""
+              disabled
+            />
+            <label class="form-check-label" for="important">중요</label>
+          </div>
+          <div class="mb-3 form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="completed"
+              name="completed"
+              checked=""
+              disabled
+            />
+            <label class="form-check-label" for="completed">완료</label>
+          </div>
+          <button class="btn btn-danger" href="">삭제</button>
+          <a class="btn btn-primary" href="">목록</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+{%endblock%} {% block script %} {%endblock%}
